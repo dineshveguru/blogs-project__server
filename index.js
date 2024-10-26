@@ -14,7 +14,10 @@ app.use(express.json());
 app.use(cors());
 
 const uri = "mongodb+srv://dinesh:dinesh@cluster0.bbtf8hk.mongodb.net/";
-const client = new mongodb.MongoClient(uri);
+const client = new mongodb.MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // check the connection
 client.connect((err) => {
